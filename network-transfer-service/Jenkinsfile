@@ -1,0 +1,22 @@
+@Library(['dsl-lib', 'devops-lib'])_
+properties([gitLabConnection('GitSwarmWithAPIToken')])
+
+containerizeSpringApp{
+	component = 'network-transfer-service'
+	skipGenerateSources = "false"
+	skipUnitTests = "false"
+	skipSonar = "true"
+	skipPackageRPM = "false"
+	skipPackageContainer = "false"
+	
+	pom_file = "pom.xml"
+	package_pom_file = "package-pom.xml"
+
+	codegen_context_parameter = "./context/codegen.json"
+	
+	docker_file = "./Dockerfile"
+	container_name = "network-transfer-service"
+
+	sonarreportPath = "target/sonar/report-task.txt"
+	sonarBaselineBranch = 'master'
+}

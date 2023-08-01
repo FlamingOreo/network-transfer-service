@@ -1,0 +1,14 @@
+
+[Service]
+ User=ctuser
+ Group=ctuser
+ Restart=on-failure
+ RestartSec=30
+ Type=simple
+ TimeoutStartSec=infinity
+ ExecStart=/usr/bin/csh -c '/usr/g/sdapplications/networktransferservice/scripts/runnetworktransferservice.sh'
+ ExecStop=/usr/bin/csh -c '/usr/g/sdapplications/networktransferservice/scripts/stopnetworktransferservice.sh'
+ KillSignal=SIGTERM
+
+[Install]
+ WantedBy=multi-user.target

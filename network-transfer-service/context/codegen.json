@@ -1,0 +1,67 @@
+{
+  "templateVersion" : "4.0.0",
+  "swaggerUrl" : "https://hc-us-east-aws-artifactory.cloud.health.ge.com/artifactory/generic-ctprem/revolution/microservices/apis/network-transfer-service/1.0.0/swagger.yaml",
+  "language" : "springboot-micro-service",
+  "values" : {
+    "artifactId" : "network-transfer-service",
+    "groupId" : "com.gehc.platform",
+    "artifact-version" : "1.0.0",
+    "ignoreOverwritePattern" : ["Jenkinsfile", "Dockerfile", ".gitignore", "README.md", "network-transfer-service-dependencies/pom.xml"],
+    "platform-features" : {
+      "ssl" : {
+        "enable" : false,
+        "keystore" : "",
+        "keystorePassword" : "",
+        "keystoreType" : ""
+      },
+      "openTelemetry" : {
+        "enable" : false,
+        "params" : "-javaagent:${TELEMETRY_JAR_PATH} -Dotel.service.name=${TELEMETRY_SERVICE_NAME} -Dotel.traces.exporter=none"
+      },
+      "messaging" : {
+        "enable" : false
+      }
+    },
+    "clients" : [],
+    "testing" : {
+      "contracts" : {
+        "baseTestName" : "BaseContractsApi"
+      }
+    },
+    "deployment" : {
+      "directory" : "",
+      "registryUrl": "",
+      "helm" : {
+        "namespace" : "",
+	"serviceType":"",
+        "servicePort" : 0,
+        "targetPort" : 0,
+        "nodePort" : 0,
+        "enableIngress" : false
+      }
+    },
+    "optimization" : {
+      "jvm" : {
+        "numOfThreads" : 2,
+        "NativeMemoryTracking" : "summary",
+        "heapMin" : "8m",
+        "heapMax" : "40m",
+        "gc" : "+UseSerialGC",
+        "InitialCodeCacheSize" : "2m",
+        "ReservedCodeCacheSize" : "8m",
+        "MaxDirectMemorySize" : "8m",
+        "MaxMetaspaceSize" : "60m",
+        "MinMetaspaceFreeRatio" : 40,
+        "MaxMetaspaceFreeRatio" : 80,
+        "stackSize" : "228k",
+        "MaxRAM" : "64m",
+        "CICompilerCount" : 2
+      },
+      "springboot-component-scan-package" : ""
+    }
+  },
+  "additionalProperties" : {
+  	"OD_CSE_COMPONENT_VERSION": "4.24.1",
+	"odplatform.component.version": "1.11.0"
+  }
+}
